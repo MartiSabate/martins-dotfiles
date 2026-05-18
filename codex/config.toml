@@ -1,0 +1,68 @@
+personality = "pragmatic"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+[windows]
+sandbox = "unelevated"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-05-18T19:35:19Z"
+source_type = "local"
+source = '\\?\C:\Users\mpinx\.codex\.tmp\bundled-marketplaces\openai-bundled'
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[projects.'c:\users\mpinx\documents\new project']
+trust_level = "trusted"
+
+# https://github.com/academind/codex-course-resources/blob/main/other/useful-config.md configs
+
+# When to pause and ask you for permission before running a command or editing a file.
+# Options:
+# - "on-request": (Default) The agent decides when to ask (balanced).
+# - "never":      (Risky) Runs everything automatically. Good for autonomous "codex exec" scripts.
+# - "untrusted":  Strict. Asks for almost everything.
+approval_policy = "on-request"
+
+# Controls file system and network access.
+# Options:
+# - "read-only":       Agent can look but cannot touch.
+# - "workspace-write": (Default) Can edit files inside the repo, but blocked from system files (e.g. /etc).
+# - "danger-full-access": No sandbox. Agent can edit system files and access the internet freely.
+sandbox_mode = "workspace-write"
+
+# Web search behavior.
+# Options:
+# - "cached": (Default) Safer. Uses OpenAI's pre-indexed copy of the web (prevents prompt injection).
+# - "live":   Fetches real-time data. Use this if you need docs for a library released yesterday.
+# - "disabled": No web access.
+web_search = "cached"
+
+# How citations (file links) in the chat response should open.
+# Options: "vscode", "cursor", "windsurf", "vscode-insiders", "none"
+file_opener = "vscode"
+
+# Controls which environment variables are passed to the agent's shell.
+# By default, Codex scrubs secrets to prevent leaks.
+[shell_environment_policy]
+# inherit = "all" # Default: Pass everything except known secrets.
+# Or use this to be strict and only pass specific variables:
+# include_only = ["PATH", "HOME", "TERM"]
+
+# Disable anonymous usage statistics sent to OpenAI.
+[analytics]
+enabled = false
+
+# Disable the "/feedback" command and prompts.
+[feedback]
+enabled = false
+
+[features]
+# Speed up repeated commands by snapshotting the shell state (Beta).
+shell_snapshot = true
+
+# Enable "Plan Mode" to let the agent propose a strategy before coding (Stable).
+collaboration_modes = true
