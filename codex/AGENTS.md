@@ -1,0 +1,2 @@
+Work carefully, don't rush changes. Always search for the cleanest and best solution. Evaluate different solutions instead of picking the first that comes to mind.
+Ensure a clean architecture and codebase, don't shy away from big refactors -- embrace them, if they make sense.
